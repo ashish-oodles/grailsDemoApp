@@ -7,7 +7,11 @@ class UrlMappings {
 			}
 		}
 
-		"/"(view:"/index")
-		"500"(view:'/error')
+		"/"(controller:"login");
+		"500"(view:'/error');
+		"/org"(controller: "addOrganization");
+		"/user"(controller:"addUser");
+		"/login"(controller:"login");
+		"/filter"(controller:"filterUser");
 	}
 }
