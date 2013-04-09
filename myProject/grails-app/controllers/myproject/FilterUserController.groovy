@@ -1,17 +1,18 @@
 package myproject
 
 class FilterUserController {
-
+	def scaffold = true
     def index() {
 		redirect(action:"filterPage");
 	}
 	
 	def filterPage = {
 		def org = Organization.findAll();
+		println "org"+org;
 		[org:org]
 	}
 	
-	def filterResult = {
+	def filterResult2 = {
 		def gender = params.gender;
 		def fromage = params.fromage;
 		def toage = params.toage;
@@ -24,6 +25,9 @@ class FilterUserController {
 			and
 			{eq("organization",org)}
 		}
-		[result:result]
+		
+		//render "Updated";
+		render(template:"/filterUser/filterResult", model:[result: result] )
+		return
 	}
 }
